@@ -59,7 +59,7 @@ const ProductCatalog = ({ products, onAddToCart }: ProductCatalogProps) => {
                 <p className="text-yellow-200 mb-4 text-sm leading-relaxed">{product.description}</p>
                 
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-2xl font-bold text-yellow-400">${product.price}</span>
+                  <span className="text-2xl font-bold text-yellow-400">₦{product.price.toLocaleString()}</span>
                   <span className="text-sm text-yellow-300">{product.stock} in stock</span>
                 </div>
                 

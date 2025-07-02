@@ -22,7 +22,7 @@ interface CartProps {
 const Cart = ({ items, onRemoveItem, onUpdateQuantity, onBack }: CartProps) => {
   const subtotal = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   const tax = subtotal * 0.08; // 8% tax
-  const shipping = subtotal > 50 ? 0 : 9.99;
+  const shipping = subtotal > 20000 ? 0 : 3999; // Free shipping over ₦20,000
   const total = subtotal + tax + shipping;
 
   const handleCheckout = () => {
@@ -41,7 +41,7 @@ const Cart = ({ items, onRemoveItem, onUpdateQuantity, onBack }: CartProps) => {
           <div className="text-center py-20">
             <h2 className="text-3xl font-bold mb-4 text-gray-800">Your cart is empty</h2>
             <p className="text-gray-600 mb-8">Discover our beautiful fragrances and find your perfect scent.</p>
-            <Button onClick={onBack} className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700">
+            <Button onClick={onBack} className="bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-black">
               Explore Collection
             </Button>
           </div>
@@ -58,7 +58,7 @@ const Cart = ({ items, onRemoveItem, onUpdateQuantity, onBack }: CartProps) => {
           Continue Shopping
         </Button>
 
-        <h1 className="text-4xl font-bold mb-8 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+        <h1 className="text-4xl font-bold mb-8 bg-gradient-to-r from-yellow-400 to-amber-500 bg-clip-text text-transparent">
           Shopping Cart
         </h1>
 
@@ -76,7 +76,7 @@ const Cart = ({ items, onRemoveItem, onUpdateQuantity, onBack }: CartProps) => {
                     
                     <div className="flex-1">
                       <h3 className="font-semibold text-lg">{item.name}</h3>
-                      <p className="text-purple-600 font-bold">${item.price}</p>
+                      <p className="text-yellow-600 font-bold">₦{item.price.toLocaleString()}</p>
                     </div>
                     
                     <div className="flex items-center gap-2">
@@ -107,7 +107,7 @@ const Cart = ({ items, onRemoveItem, onUpdateQuantity, onBack }: CartProps) => {
                     </div>
                     
                     <div className="text-right">
-                      <p className="font-bold">${(item.price * item.quantity).toFixed(2)}</p>
+                      <p className="font-bold">₦{(item.price * item.quantity).toLocaleString()}</p>
                       <Button
                         size="sm"
                         variant="ghost"
@@ -132,36 +132,36 @@ const Cart = ({ items, onRemoveItem, onUpdateQuantity, onBack }: CartProps) => {
               <CardContent className="space-y-4">
                 <div className="flex justify-between">
                   <span>Subtotal</span>
-                  <span>${subtotal.toFixed(2)}</span>
+                  <span>₦{subtotal.toLocaleString()}</span>
                 </div>
                 
                 <div className="flex justify-between">
                   <span>Tax</span>
-                  <span>${tax.toFixed(2)}</span>
+                  <span>₦{tax.toLocaleString()}</span>
                 </div>
                 
                 <div className="flex justify-between">
                   <span>Shipping</span>
-                  <span>{shipping === 0 ? 'Free' : `$${shipping.toFixed(2)}`}</span>
+                  <span>{shipping === 0 ? 'Free' : `₦${shipping.toLocaleString()}`}</span>
                 </div>
                 
                 <hr />
                 
                 <div className="flex justify-between text-lg font-bold">
                   <span>Total</span>
-                  <span>${total.toFixed(2)}</span>
+                  <span>₦{total.toLocaleString()}</span>
                 </div>
                 
                 <Button 
                   onClick={handleCheckout}
-                  className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-3 rounded-lg mt-6"
+                  className="w-full bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-black font-semibold py-3 rounded-lg mt-6"
                 >
                   <CreditCard className="h-4 w-4 mr-2" />
                   Proceed to Checkout
                 </Button>
                 
                 <p className="text-sm text-gray-500 text-center">
-                  {shipping > 0 && `Free shipping on orders over $50`}
+                  {shipping > 0 && `Free shipping on orders over ₦20,000`}
                 </p>
               </CardContent>
             </Card>

@@ -50,11 +50,11 @@ const ChatBot = () => {
     const input = userInput.toLowerCase();
     
     if (input.includes('price') || input.includes('cost')) {
-      return "Our perfumes range from $79.99 to $95.99. Each fragrance is crafted with premium ingredients and offers exceptional value for luxury quality.";
+      return "Our perfumes range from ₦31,999 to ₦38,399. Each fragrance is crafted with premium ingredients and offers exceptional value for luxury quality.";
     } else if (input.includes('recommend') || input.includes('suggest')) {
       return "I'd love to help you find the perfect scent! What type of fragrance do you prefer? Fresh and light, warm and oriental, or woody and sophisticated?";
     } else if (input.includes('shipping') || input.includes('delivery')) {
-      return "We offer free shipping on orders over $50! Standard delivery takes 3-5 business days, and express delivery is available for next-day arrival.";
+      return "We offer free shipping on orders over ₦20,000! Standard delivery takes 3-5 business days, and express delivery is available for next-day arrival.";
     } else if (input.includes('ingredients') || input.includes('made')) {
       return "Our perfumes are crafted with the finest natural and synthetic ingredients sourced globally. Each fragrance is carefully blended by master perfumers to ensure exceptional quality and longevity.";
     } else {

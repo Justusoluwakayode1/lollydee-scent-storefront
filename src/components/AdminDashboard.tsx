@@ -94,7 +94,7 @@ const AdminDashboard = ({ products, setProducts }: AdminDashboardProps) => {
     <div className="min-h-screen py-8 px-6">
       <div className="container mx-auto max-w-7xl">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+          <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-yellow-400 to-amber-500 bg-clip-text text-transparent">
             Admin Dashboard
           </h1>
           <p className="text-gray-600">Manage your perfume inventory and track sales</p>
@@ -102,50 +102,50 @@ const AdminDashboard = ({ products, setProducts }: AdminDashboardProps) => {
 
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          <Card className="bg-gradient-to-r from-purple-500 to-purple-600 text-white">
+          <Card className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-purple-100">Total Products</p>
+                  <p className="text-yellow-800">Total Products</p>
                   <p className="text-3xl font-bold">{products.length}</p>
                 </div>
-                <Package className="h-12 w-12 text-purple-200" />
+                <Package className="h-12 w-12 text-yellow-800" />
               </div>
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-r from-pink-500 to-pink-600 text-white">
+          <Card className="bg-gradient-to-r from-amber-500 to-amber-600 text-black">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-pink-100">Total Stock</p>
+                  <p className="text-amber-800">Total Stock</p>
                   <p className="text-3xl font-bold">{totalStock}</p>
                 </div>
-                <TrendingUp className="h-12 w-12 text-pink-200" />
+                <TrendingUp className="h-12 w-12 text-amber-800" />
               </div>
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-r from-rose-500 to-rose-600 text-white">
+          <Card className="bg-gradient-to-r from-yellow-600 to-amber-600 text-black">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-rose-100">Inventory Value</p>
-                  <p className="text-3xl font-bold">${totalValue.toFixed(0)}</p>
+                  <p className="text-yellow-800">Inventory Value</p>
+                  <p className="text-3xl font-bold">₦{totalValue.toLocaleString()}</p>
                 </div>
-                <DollarSign className="h-12 w-12 text-rose-200" />
+                <DollarSign className="h-12 w-12 text-yellow-800" />
               </div>
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-r from-indigo-500 to-indigo-600 text-white">
+          <Card className="bg-gradient-to-r from-amber-600 to-yellow-600 text-black">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-indigo-100">Categories</p>
+                  <p className="text-amber-800">Categories</p>
                   <p className="text-3xl font-bold">{new Set(products.map(p => p.category)).size}</p>
                 </div>
-                <Users className="h-12 w-12 text-indigo-200" />
+                <Users className="h-12 w-12 text-amber-800" />
               </div>
             </CardContent>
           </Card>
@@ -174,7 +174,7 @@ const AdminDashboard = ({ products, setProducts }: AdminDashboardProps) => {
                   </div>
 
                   <div>
-                    <Label htmlFor="price">Price ($)</Label>
+                    <Label htmlFor="price">Price (₦)</Label>
                     <Input
                       id="price"
                       type="number"
@@ -270,7 +270,7 @@ const AdminDashboard = ({ products, setProducts }: AdminDashboardProps) => {
                         </div>
                       </div>
                       <div className="flex items-center gap-2">
-                        <span className="text-lg font-bold text-purple-600">${product.price}</span>
+                        <span className="text-lg font-bold text-yellow-600">₦{product.price.toLocaleString()}</span>
                         <Button size="sm" variant="outline" onClick={() => handleEdit(product)}>
                           <Edit className="h-4 w-4" />
                         </Button>

@@ -14,7 +14,7 @@ const Index = () => {
     {
       id: 1,
       name: "Midnight Rose",
-      price: 89.99,
+      price: 35999.99,
       image: "/placeholder.svg",
       description: "A captivating blend of dark roses and mysterious spices",
       stock: 25,
@@ -23,7 +23,7 @@ const Index = () => {
     {
       id: 2,
       name: "Ocean Breeze",
-      price: 79.99,
+      price: 31999.99,
       image: "/placeholder.svg",
       description: "Fresh aquatic notes with hints of sea salt and driftwood",
       stock: 18,
@@ -32,7 +32,7 @@ const Index = () => {
     {
       id: 3,
       name: "Golden Amber",
-      price: 95.99,
+      price: 38399.99,
       image: "/placeholder.svg",
       description: "Warm amber with touches of vanilla and sandalwood",
       stock: 30,
