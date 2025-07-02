@@ -66,7 +66,7 @@ const ChatBot = () => {
     return (
       <Button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white rounded-full w-14 h-14 shadow-lg hover:shadow-xl transition-all duration-300 z-50"
+        className="fixed bottom-6 right-6 bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-black rounded-full w-14 h-14 shadow-lg hover:shadow-xl transition-all duration-300 z-50"
       >
         <MessageCircle className="h-6 w-6" />
       </Button>
@@ -74,8 +74,8 @@ const ChatBot = () => {
   }
 
   return (
-    <Card className="fixed bottom-6 right-6 w-96 h-[500px] shadow-2xl z-50 flex flex-col">
-      <CardHeader className="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-t-lg">
+    <Card className="fixed bottom-6 right-6 w-96 h-[500px] shadow-2xl z-50 flex flex-col bg-black border border-yellow-400">
+      <CardHeader className="bg-gradient-to-r from-yellow-400 to-amber-500 text-black rounded-t-lg">
         <div className="flex items-center justify-between">
           <CardTitle className="flex items-center gap-2">
             <Bot className="h-5 w-5" />
@@ -85,15 +85,15 @@ const ChatBot = () => {
             onClick={() => setIsOpen(false)}
             variant="ghost"
             size="sm"
-            className="text-white hover:bg-white/20"
+            className="text-black hover:bg-black/20"
           >
             <X className="h-4 w-4" />
           </Button>
         </div>
-        <p className="text-sm text-purple-100">Powered by n8n workflows</p>
+        <p className="text-sm text-black/80">Powered by n8n workflows</p>
       </CardHeader>
       
-      <CardContent className="flex-1 flex flex-col p-0">
+      <CardContent className="flex-1 flex flex-col p-0 bg-black">
         <div className="flex-1 overflow-y-auto p-4 space-y-4">
           {messages.map((message) => (
             <div
@@ -101,16 +101,16 @@ const ChatBot = () => {
               className={`flex gap-2 ${message.isBot ? 'justify-start' : 'justify-end'}`}
             >
               {message.isBot && (
-                <div className="bg-purple-100 rounded-full p-2 flex-shrink-0">
-                  <Bot className="h-4 w-4 text-purple-600" />
+                <div className="bg-yellow-400 rounded-full p-2 flex-shrink-0">
+                  <Bot className="h-4 w-4 text-black" />
                 </div>
               )}
               
               <div
                 className={`max-w-[80%] p-3 rounded-lg ${
                   message.isBot
-                    ? 'bg-gray-100 text-gray-800'
-                    : 'bg-gradient-to-r from-purple-600 to-pink-600 text-white'
+                    ? 'bg-white text-black border border-yellow-400/30'
+                    : 'bg-gradient-to-r from-yellow-400 to-amber-500 text-black'
                 }`}
               >
                 <p className="text-sm">{message.text}</p>
@@ -120,8 +120,8 @@ const ChatBot = () => {
               </div>
               
               {!message.isBot && (
-                <div className="bg-purple-600 rounded-full p-2 flex-shrink-0">
-                  <User className="h-4 w-4 text-white" />
+                <div className="bg-yellow-400 rounded-full p-2 flex-shrink-0">
+                  <User className="h-4 w-4 text-black" />
                 </div>
               )}
             </div>
@@ -129,33 +129,33 @@ const ChatBot = () => {
           
           {isTyping && (
             <div className="flex gap-2 justify-start">
-              <div className="bg-purple-100 rounded-full p-2">
-                <Bot className="h-4 w-4 text-purple-600" />
+              <div className="bg-yellow-400 rounded-full p-2">
+                <Bot className="h-4 w-4 text-black" />
               </div>
-              <div className="bg-gray-100 p-3 rounded-lg">
+              <div className="bg-white p-3 rounded-lg border border-yellow-400/30">
                 <div className="flex gap-1">
-                  <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                  <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-100"></div>
-                  <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-200"></div>
+                  <div className="w-2 h-2 bg-gray-600 rounded-full animate-bounce"></div>
+                  <div className="w-2 h-2 bg-gray-600 rounded-full animate-bounce delay-100"></div>
+                  <div className="w-2 h-2 bg-gray-600 rounded-full animate-bounce delay-200"></div>
                 </div>
               </div>
             </div>
           )}
         </div>
         
-        <form onSubmit={handleSendMessage} className="p-4 border-t">
+        <form onSubmit={handleSendMessage} className="p-4 border-t border-yellow-400/30">
           <div className="flex gap-2">
             <Input
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
               placeholder="Ask about our fragrances..."
-              className="flex-1"
+              className="flex-1 bg-white text-black border-yellow-400/50 focus:border-yellow-400"
               disabled={isTyping}
             />
             <Button
               type="submit"
               disabled={!inputText.trim() || isTyping}
-              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
+              className="bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-black"
             >
               <Send className="h-4 w-4" />
             </Button>
